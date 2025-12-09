@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicas de Segurança - Mulheres Estrangeiras no Brasil</title>
+    <title>Guia de Segurança Digital - Mulheres Imigrantes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary-pink: #ff6b81;
@@ -12,53 +17,78 @@
             --bg-color: #f7f1f3;
             --text-color: #2c3e50;
             --card-bg: #ffffff;
+            --success-green: #27ae60;
+            --danger-red: #e74c3c;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Nunito', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 20px;
             line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
-        /* Стиль для карточек (страниц PDF) */
         .card {
             background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.1);
             margin-bottom: 30px;
             overflow: hidden;
             border: 2px solid transparent;
-            position: relative;
-        }
-
-        /* Декоративная рамка как на первой странице */
-        .card-hero {
-            border: 4px dashed var(--primary-pink);
-            padding: 20px;
-            text-align: center;
+            transition: transform 0.2s ease;
         }
         
-        .card-hero h1 {
-            color: var(--primary-purple);
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(142, 68, 173, 0.15);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 25px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 107, 129, 0.3);
+        }
+
+        .hero-section h1 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 2.5rem;
+            margin: 0;
+            line-height: 1.2;
             text-transform: uppercase;
-            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-section p {
             margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hero-intro {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
 
         .image-container {
             width: 100%;
-            height: 250px;
+            height: 230px;
             overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 15px;
         }
 
         .image-container img {
@@ -67,19 +97,27 @@
             object-fit: cover;
         }
 
-        /* Заголовки секций */
         h2 {
+            font-family: 'Patrick Hand', cursive;
             color: var(--primary-purple);
             border-bottom: 2px solid var(--primary-pink);
             padding-bottom: 10px;
             margin-top: 0;
+            font-size: 2.1rem;
+        }
+
+        h3 {
+             font-family: 'Patrick Hand', cursive;
+             font-size: 1.6rem;
+             color: var(--accent-orange);
+             margin-bottom: 15px;
+             margin-top: 25px;
         }
 
         .section-content {
-            padding: 20px;
+            padding: 30px;
         }
 
-        /* Списки советов */
         ul {
             list-style: none;
             padding: 0;
@@ -87,130 +125,190 @@
 
         ul li {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            font-size: 1rem;
+            padding-left: 30px;
+            margin-bottom: 18px;
         }
 
         ul li::before {
             content: "•";
             color: var(--primary-pink);
             font-weight: bold;
-            font-size: 1.5em;
+            font-size: 2em;
             position: absolute;
-            left: 0;
-            top: -5px;
+            left: 5px;
+            top: -10px;
+            font-family: 'Patrick Hand', cursive;
         }
 
-        /* Акцентные блоки (например, для важных предупреждений) */
+        /* Specific boxes */
         .warning-box {
-            background-color: #fff0f0;
-            border-left: 5px solid var(--primary-pink);
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
+            background-color: #fff5f5;
+            border-left: 6px solid var(--danger-red);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
         }
-
-        .solution-box {
+        
+        .highlight-box {
             background-color: #f0f8ff;
-            border-left: 5px solid var(--primary-purple);
-            padding: 15px;
-            margin-top: 15px;
-            font-weight: bold;
+            border-left: 6px solid var(--primary-purple);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
         }
 
-        /* Футер */
+        .check-box {
+            background-color: #f0fbf4;
+            border-left: 6px solid var(--success-green);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        strong {
+            color: var(--primary-purple);
+        }
+
         footer {
             text-align: center;
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 40px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
         }
-
     </style>
 </head>
 <body>
 
     <div class="container">
 
-        <!-- Страница 1: Титульная -->
-        <article class="card card-hero">
+        <!-- Header -->
+        <div class="hero-section">
+            <h1>Dicas para Mulheres Estrangeiras no Brasil frente ao Golpe pela Internet</h1>
+            <div class="hero-intro">
+                "As mulheres imigrantes no Brasil enfrentam desafios no âmbito digital que podem agravar sua vulnerabilidade. Aqui estão os principais problemas e golpes específicos do meio digital."
+            </div>
+        </div>
+
+        <!-- 1. PROTEÇÃO DE DADOS -->
+        <article class="card">
             <div class="image-container">
-                <!-- Картинка: Две женщины разговаривают за ноутбуком -->
-                <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=600&auto=format&fit=crop" alt="Mulheres conversando com laptop">
+                <img src="https://images.unsplash.com/photo-1606166325683-e6deb697d30d?q=80&w=800&auto=format&fit=crop" alt="Proteção de Dados">
             </div>
-            <h1> DICAS PARA MULHERES ESTRANGEIRAS NO BRASIL FRETE AO GOLPE PELA INTERNET</h1>
-        </article>
-
-        <!-- Страница 2: Защита данных -->
-        <article class="card">
             <div class="section-content">
-                <h2> 1. Proteção dos seus dados pessoais</h2>
+                <h2>1. Proteção de Dados e Documentos</h2>
+                
+                <h3>Cuidados Essenciais</h3>
                 <ul>
-                    <li> Nunca envie fotos de documentos (passaporte, RNE, CPF, comprovante de residência).</li>
-                    <li> Não compartilhe dados pessoais pelo WhatsApp, Instagram ou Facebook.</li>
-                    <li> Deixe suas redes sociais em modo privado e evite mostrar onde mora, trabalha ou estuda.</li>
+                    <li>Nunca envie fotos de documentos (passaporte, RNE, CPF, comprovante de residência).</li>
+                    <li>Não compartilhe dados pessoais pelo WhatsApp, Instagram ou Facebook.</li>
+                    <li>Deixe suas redes sociais em modo privado e evite mostrar onde mora, trabalha ou estuda.</li>
                 </ul>
-            </div>
-        </article>
 
-        <!-- Страница 3: Проверка и Безопасность (Визуально продолжает тему) -->
-        <article class="card">
-            <div class="image-container" style="height: 200px;">
-                <!-- Картинка: Женщина указывает на что-то важное -->
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop" alt="Mulher apontando">
-            </div>
-            <div class="section-content">
-                <h3 style="color: var(--accent-orange);"> Sempre verifique:</h3>
+                <h3>O Perigo do Vazamento (Uso Indevido)</h3>
+                <p>Ao enviar cópias de passaporte, RNM ou CPF para empregadores ou intermediários não confiáveis, os dados podem ser usados para:</p>
                 <ul>
-                    <li> Se for empresa: procure o CNPJ no site oficial da Receita Federal.</li>
-                    <li> Peça uma chamada de vídeo antes de qualquer acordo pessoal.</li>
-                    <li> Se receber um boleto, pague somente pelo aplicativo oficial do banco para identificar se é falso.</li>
-                    <li> Desconfie se pedirem PIX antecipado para "reservar".</li>
+                    <li>Fraudes como abrir contas bancárias;</li>
+                    <li>Fazer empréstimos no nome da vítima.</li>
                 </ul>
-            </div>
-        </article>
 
-        <!-- Страница 4: WhatsApp -->
-        <article class="card">
-            <div class="image-container" style="height: 200px;">
-                <!-- Картинка: Женщина с жестом "Стоп" или мегафоном -->
-                <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=600&auto=format&fit=crop" alt="Cuidado e atenção">
-            </div>
-            <div class="section-content">
-                <h2> 5. Cuidado com o WhatsApp</h2>
-                <p> No Brasil, o golpe do WhatsApp é muito comum:</p>
                 <div class="warning-box">
+                    <strong>Golpes de Documentação:</strong><br>
                     <ul>
-                        <li> A pessoa finge ser seu filho, parceiro ou amigo com um número novo.</li>
-                        <li> Pede PIX "urgente".</li>
+                        <li><strong>Sites falsos:</strong> Páginas que imitam sites oficiais da Polícia Federal ou Ministério da Justiça, cobrando por serviços que são gratuitos ou roubando dados pessoais.</li>
+                        <li><strong>Phishing:</strong> Mensagens falsas por e-mail ou WhatsApp alegando problemas com documentos, visto ou CPF, com links que direcionam para páginas que capturam dados sensíveis.</li>
                     </ul>
                 </div>
-                <div class="solution-box">
-                    Solução:<br>
-                    Sempre ligue para a pessoa antes de fazer qualquer pagamento.
+            </div>
+        </article>
+
+        <!-- 2. TRABALHO E FINANÇAS -->
+        <article class="card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop" alt="Trabalho e Finanças">
+            </div>
+            <div class="section-content">
+                <h2>2. Trabalho e Finanças</h2>
+
+                <h3>Procura de Emprego</h3>
+                <ul>
+                    <li><strong>Falsas oportunidades:</strong> Anúncios em redes sociais, sites ou grupos de WhatsApp oferecem vagas falsas e pedem pagamento adiantado para taxas de processo ou documentação.</li>
+                    <li>Não pague para "liberar vaga" ou "fazer inscrição".</li>
+                    <li>Desconfie de ofertas com salários muito altos para funções simples.</li>
+                    <li>Não envie fotos de documentos antes de uma entrevista presencial ou chamada de vídeo confiável.</li>
+                </ul>
+
+                <h3>Golpes Financeiros Online</h3>
+                <ul>
+                    <li><strong>Fraudes em transferências internacionais:</strong> Golpistas se passam por agentes de câmbio online, oferecem taxas vantajosas e desaparecem após receber o dinheiro.</li>
+                    <li><strong>Empréstimos fraudulentos:</strong> Aplicativos ou sites falsos de empréstimo para imigrantes, com juros abusivos ou que roubam dados bancários.</li>
+                </ul>
+
+                <div class="check-box">
+                    <strong>Sempre verifique:</strong>
+                    <ul>
+                        <li>Se for empresa: procure o CNPJ no site oficial da Receita Federal.</li>
+                        <li>Peça uma chamada de vídeo antes de qualquer acordo pessoal.</li>
+                        <li>Se receber um boleto, pague somente pelo aplicativo oficial do banco para identificar se é falso.</li>
+                        <li>Desconfie se pedirem PIX antecipado para "reservar".</li>
+                    </ul>
                 </div>
             </div>
         </article>
 
-        <!-- Страница 5: Поиск работы -->
+        <!-- 3. RELACIONAMENTOS E REDES SOCIAIS -->
         <article class="card">
-            <div class="image-container" style="height: 200px;">
-                <!-- Картинка: Женщина думает/выбирает -->
-                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop" alt="Procura de emprego">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop" alt="Redes Sociais">
             </div>
             <div class="section-content">
-                <h2> 6. Procura de emprego - cuidados</h2>
+                <h2>3. Relacionamentos e WhatsApp</h2>
+
+                <h3>Exploração em Apps e Redes Sociais</h3>
                 <ul>
-                    <li> Não pague para "liberar vaga" ou "fazer inscrição".</li>
-                    <li> Desconfie de ofertas com salários muito altos para funções simples.</li>
-                    <li> Não envie fotos de documentos antes de uma entrevista presencial ou chamada de vídeo confiável.</li>
+                    <li><strong>Falsos pretendentes (Golpe do Amor):</strong> Homens se passam por parceiros interessados, ganham confiança e depois pedem dinheiro para emergências, documentos ou viagens.</li>
+                    <li><strong>Recrutamento para exploração sexual:</strong> Perfis falsos no Instagram ou Facebook recrutam mulheres para encontros ou trabalhos que são, na realidade, redes de prostituição forçada.</li>
+                    <li><strong>Extorsão:</strong> Golpistas obtêm fotos íntimas (por meio de falsos relacionamentos ou perfis fake) e ameaçam divulgar se não receberem pagamento.</li>
+                </ul>
+
+                <h3>Cuidado com o WhatsApp</h3>
+                <p>No Brasil, o golpe do WhatsApp é muito comum:</p>
+                <ul>
+                    <li>A pessoa finge ser seu filho, parceiro ou amigo com um número novo.</li>
+                    <li>Pede PIX "urgente".</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>Solução:</strong> Sempre ligue para a pessoa antes de fazer qualquer pagamento.
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. ASSÉDIO E VIGILÂNCIA -->
+        <article class="card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" alt="Vigilância">
+            </div>
+            <div class="section-content">
+                <h2>4. Vigilância e Discriminação</h2>
+
+                <h3>Assédio e Discriminação Digital</h3>
+                <ul>
+                    <li><strong>Xenofobia e assédio online:</strong> Comentários discriminatórios em redes sociais, grupos de discussão ou em apps de trabalho como <strong>Uber e iFood</strong> devido à nacionalidade, sotaque ou aparência.</li>
+                    <li><strong>Oferta de "ajuda" mal-intencionada:</strong> Pessoas que se oferecem para ajudar em grupos de imigrantes no Facebook/WhatsApp, mas buscam se aproximar para exploração financeira, sexual ou laboral.</li>
+                </ul>
+
+                <h3>Vigilância Digital</h3>
+                <ul>
+                    <li><strong>Monitoramento por agressores:</strong> Companheiros ou exploradores podem usar rastreamento por GPS ou controle de redes sociais para manter domínio sobre a mulher imigrante.</li>
                 </ul>
             </div>
         </article>
 
         <footer>
-            <p>Guia de segurança digital</p>
+            <p>Guia de Segurança Digital para Mulheres Imigrantes no Brasil</p>
         </footer>
 
     </div>
