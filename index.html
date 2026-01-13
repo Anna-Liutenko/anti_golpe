@@ -165,6 +165,48 @@
             border-radius: 8px;
         }
 
+        /* Styles for Team Section */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            flex: 0 1 150px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px; /* Changed from 50% to 20px for rounded squares */
+            object-fit: cover;
+            /* border removed */
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05);
+            /* Added shadow on hover since border color is gone */
+            box-shadow: 0 8px 15px rgba(142, 68, 173, 0.2); 
+        }
+
+        .team-member h4 {
+            font-family: 'Patrick Hand', cursive;
+            color: var(--primary-purple);
+            font-size: 1.2rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
         strong {
             color: var(--primary-purple);
         }
@@ -307,6 +349,36 @@
             </div>
         </article>
 
+        <!-- TEAM SECTION -->
+        <article class="card">
+            <div class="section-content" style="text-align: center;">
+                <h2>Guia preparado por:</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://raw.githubusercontent.com/Anna-Liutenko/anti_golpe/refs/heads/main/img/aminata.jpg" alt="Aminata Tcham">
+                        <h4>Aminata Tcham</h4>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://raw.githubusercontent.com/Anna-Liutenko/anti_golpe/refs/heads/main/img/Ruthzan%20.jpg" alt="Ruth Mery Guillén Sullasi">
+                        <h4>Ruth Mery Guillén Sullasi</h4>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://raw.githubusercontent.com/Anna-Liutenko/anti_golpe/refs/heads/main/img/anna_liutenko.png" alt="Anna Liutenko">
+                        <h4>Anna Liutenko</h4>
+                    </div>
+
+                    <div class="team-member">
+                        <!-- Добавлено style="object-position: top;" чтобы сфокусироваться на верхней части фото (лице) -->
+                        <img src="https://raw.githubusercontent.com/Anna-Liutenko/anti_golpe/refs/heads/main/img/Sheldini%20.jpg" alt="Cheldini Saint Louis" style="object-position: top;">
+                        <h4>Cheldini Saint Louis</h4>
+                    </div>
+                </div>
+            </div>
+        </article>
+
         <footer>
             <p>Guia de Segurança Digital para Mulheres Imigrantes no Brasil</p>
         </footer>
@@ -315,4 +387,3 @@
 
 </body>
 </html>
-
